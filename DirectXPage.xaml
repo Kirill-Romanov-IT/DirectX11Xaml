@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="DirectX11Xaml.DirectXPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DirectX11Xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!-- 1. Создаем Grid как основной контейнер для компоновки -->
+    <Grid>
+        <!-- 2. Делим Grid на две колонки -->
+        <Grid.ColumnDefinitions>
+            <!-- Левая колонка для интерфейса, шириной 300 пикселей -->
+            <ColumnDefinition Width="300"/>
+            <!-- Правая колонка для 3D, занимает все остальное место -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- === СОДЕРЖИМОЕ ЛЕВОЙ КОЛОНКИ (Grid.Column="0") === -->
+        <StackPanel Grid.Column="0" Margin="20">
+            <TextBlock Text="Панель управления" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,0,0,20"/>
+
+            <!-- Ваш текст "Hello from XAML!" теперь является частью обычного UI -->
+            <TextBlock Text="Hello from XAML!" FontSize="20" Margin="0,10" />
+
+            <!-- Добавим пару кнопок для примера -->
+            <Button Content="Действие 1" Margin="0,5"/>
+            <Button Content="Действие 2" Margin="0,5"/>
+            <ToggleSwitch Header="Включить что-нибудь" Margin="0,20,0,0"/>
+        </StackPanel>
+
+
+        <!-- === СОДЕРЖИМОЕ ПРАВОЙ КОЛОНКИ (Grid.Column="1") === -->
+        <!-- 3. Помещаем сюда вашу панель для DirectX. Имя x:Name="swapChainPanel" сохраняется! -->
+        <SwapChainPanel x:Name="swapChainPanel" Grid.Column="1" />
+
+        <!-- 4. (Опционально) Если вы хотите, чтобы какой-то текст был ПОВЕРХ 3D-сцены,
+             добавьте его сюда, после SwapChainPanel. Он ляжет сверху. -->
+        <TextBlock Grid.Column="1" 
+                   Text="Текст поверх 3D" 
+                   HorizontalAlignment="Right" 
+                   VerticalAlignment="Bottom" 
+                   Margin="20" 
+                   FontSize="24"
+                   FontWeight="Bold"/>
+
+    </Grid>
+</Page>
