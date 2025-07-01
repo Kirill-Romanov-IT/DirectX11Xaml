@@ -199,4 +199,11 @@ void DirectX11Xaml::DirectXPage::DeleteButton_Click(Platform::Object^ sender, Wi
 {
 	// Вызываем наш новый метод в главном классе
 	m_main->ToggleCubeVisibility();
+
+	if (m_main->IsCubeVisible()) {
+		deleteButton->Content = ref new Platform::String(L"Удалить");
+	}
+	else {
+		deleteButton->Content = ref new Platform::String(L"Восстановить");
+	}
 }

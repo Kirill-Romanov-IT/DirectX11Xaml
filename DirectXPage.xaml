@@ -23,7 +23,7 @@
             <TextBlock Text="Панель управления" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,0,0,20"/>
 
             <!-- Добавим пару кнопок для примера -->
-            <Button x:Name="deleteButton" Content="Удалить/Восстановить" Margin="0,5" Click="DeleteButton_Click"/>
+            <Button x:Name="deleteButton" Content="Удалить" Margin="0,5" Click="DeleteButton_Click"/>
 
         </StackPanel>
 

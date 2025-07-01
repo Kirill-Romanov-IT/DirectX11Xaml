@@ -26,6 +26,7 @@ namespace DirectX11Xaml
 		virtual void OnDeviceLost();
 		virtual void OnDeviceRestored();
 		void ToggleCubeVisibility();
+		bool IsCubeVisible() const;
 
 	private:
 		void ProcessInput();

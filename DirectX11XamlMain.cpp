@@ -152,3 +152,7 @@ void DirectX11XamlMain::ToggleCubeVisibility()
 {
 	m_isCubeVisible = !m_isCubeVisible; // Инвертируем значение (true -> false, false -> true)
 }
+
+bool DirectX11XamlMain::IsCubeVisible() const {
+	return m_isCubeVisible;
+}
