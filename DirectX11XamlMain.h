@@ -25,6 +25,7 @@ namespace DirectX11Xaml
 		// IDeviceNotify
 		virtual void OnDeviceLost();
 		virtual void OnDeviceRestored();
+		void ToggleCubeVisibility();
 
 	private:
 		void ProcessInput();
@@ -46,5 +47,6 @@ namespace DirectX11Xaml
 
 		// Отслеживание текущего положения указателя ввода.
 		float m_pointerLocationX;
+		bool m_isCubeVisible;
 	};
 }

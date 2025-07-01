@@ -19,32 +19,20 @@
         </Grid.ColumnDefinitions>
 
         <!-- === СОДЕРЖИМОЕ ЛЕВОЙ КОЛОНКИ (Grid.Column="0") === -->
-        <StackPanel Grid.Column="0" Margin="20">
+        <StackPanel Grid.Column="0" Margin="20,20,20,875">
             <TextBlock Text="Панель управления" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,0,0,20"/>
 
-            <!-- Ваш текст "Hello from XAML!" теперь является частью обычного UI -->
-            <TextBlock Text="Hello from XAML!" FontSize="20" Margin="0,10" />
-
             <!-- Добавим пару кнопок для примера -->
-            <Button Content="Действие 1" Margin="0,5"/>
-            <Button Content="Действие 2" Margin="0,5"/>
-            <ToggleSwitch Header="Включить что-нибудь" Margin="0,20,0,0"/>
+            <Button x:Name="deleteButton" Content="Удалить/Восстановить" Margin="0,5" Click="DeleteButton_Click"/>
+
         </StackPanel>
 
 
         <!-- === СОДЕРЖИМОЕ ПРАВОЙ КОЛОНКИ (Grid.Column="1") === -->
         <!-- 3. Помещаем сюда вашу панель для DirectX. Имя x:Name="swapChainPanel" сохраняется! -->
-        <SwapChainPanel x:Name="swapChainPanel" Grid.Column="1" />
+        <SwapChainPanel x:Name="swapChainPanel" Margin="20,279,0,0" Grid.ColumnSpan="2" />
 
-        <!-- 4. (Опционально) Если вы хотите, чтобы какой-то текст был ПОВЕРХ 3D-сцены,
-             добавьте его сюда, после SwapChainPanel. Он ляжет сверху. -->
-        <TextBlock Grid.Column="1" 
-                   Text="Текст поверх 3D" 
-                   HorizontalAlignment="Right" 
-                   VerticalAlignment="Bottom" 
-                   Margin="20" 
-                   FontSize="24"
-                   FontWeight="Bold"/>
+
 
     </Grid>
 </Page>

@@ -14,10 +14,13 @@ DirectX11XamlMain::DirectX11XamlMain(const std::shared_ptr<DX::DeviceResources>&
 	// Регистрация для получения уведомлений о том, что устройство потеряно или создано заново
 	m_deviceResources->RegisterDeviceNotify(this);
 
+	m_isCubeVisible = true;
+
 	// TODO: замените это инициализацией содержимого своего приложения.
 	m_sceneRenderer = std::unique_ptr<Sample3DSceneRenderer>(new Sample3DSceneRenderer(m_deviceResources));
 
 	m_fpsTextRenderer = std::unique_ptr<SampleFpsTextRenderer>(new SampleFpsTextRenderer(m_deviceResources));
+
 
 	// TODO: измените настройки таймера, если требуется режим, отличный от режима по умолчанию с переменным шагом по времени.
 	// например, для логики обновления с фиксированным временным шагом 60 кадров/с вызовите:
@@ -119,7 +122,12 @@ bool DirectX11XamlMain::Render()
 
 	// Прорисовка объектов сцены.
 	// TODO: замените это функциями прорисовки содержимого своего приложения.
-	m_sceneRenderer->Render();
+	
+	if (m_isCubeVisible) {
+		m_sceneRenderer->Render();
+	}
+	
+	
 	m_fpsTextRenderer->Render();
 
 	return true;
@@ -138,4 +146,9 @@ void DirectX11XamlMain::OnDeviceRestored()
 	m_sceneRenderer->CreateDeviceDependentResources();
 	m_fpsTextRenderer->CreateDeviceDependentResources();
 	CreateWindowSizeDependentResources();
+}
+
+void DirectX11XamlMain::ToggleCubeVisibility()
+{
+	m_isCubeVisible = !m_isCubeVisible; // Инвертируем значение (true -> false, false -> true)
 }

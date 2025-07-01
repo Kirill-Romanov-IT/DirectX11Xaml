@@ -54,6 +54,7 @@ namespace DirectX11Xaml
 		std::shared_ptr<DX::DeviceResources> m_deviceResources;
 		std::unique_ptr<DirectX11XamlMain> m_main; 
 		bool m_windowVisible;
+		void DeleteButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }
 
